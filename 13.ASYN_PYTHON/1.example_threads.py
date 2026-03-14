@@ -1,5 +1,6 @@
 import time
 from threading import Thread
+from concurrent.futures import ThreadPoolExecutor
 import threading
 
 def ask_user():
@@ -28,7 +29,7 @@ start = time.time()
 thread1.start()
 thread2.start()
 
-thread1.join() #para bloquear el main thread
-thread2.join() #para bloquear el main thread
+thread1.join() #para bloquear el main thread hasta que thread1 termine
+thread2.join() #para bloquear el main thread hasta que el thread2 termine
 print(f'Two thread total time: {time.time() - start}')
 #print(threading.active_count())
