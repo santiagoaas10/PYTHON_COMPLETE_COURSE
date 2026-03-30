@@ -1,6 +1,6 @@
 import time
 from threading import Thread
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor #creamos un bunch de threads para ejecutar nuestras funciones
 import threading
 
 def ask_user():
@@ -28,6 +28,8 @@ thread2 = Thread(target= ask_user)
 start = time.time()
 thread1.start()
 thread2.start()
+
+#DONT KILL THREADS BEACAUSE IT COULD CAUSE A DEADLOCK WHERE GIL IS NOT REASSIGNED
 
 thread1.join() #para bloquear el main thread hasta que thread1 termine
 thread2.join() #para bloquear el main thread hasta que el thread2 termine
