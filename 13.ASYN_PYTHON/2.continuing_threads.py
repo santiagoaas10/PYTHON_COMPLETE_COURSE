@@ -27,7 +27,7 @@ with ThreadPoolExecutor(max_workers=2) as pool: #creamos una pool de threads a l
 
 
 
-
+#process: At least 1 thread + 
 
 
 
@@ -68,3 +68,13 @@ Evita archivos que quedan abiertos
 Evita threads que quedan colgados
 El código queda más limpio
 """
+
+'''
+# Solo 2 threads disponibles
+with ThreadPoolExecutor(max_workers=2) as pool:
+    pool.submit(tarea_1)  # usa thread 1
+    pool.submit(tarea_2)  # usa thread 2
+    pool.submit(tarea_3)  # ESPERA a que un thread se libere
+
+
+'''

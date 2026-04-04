@@ -19,7 +19,7 @@ def complex_calculation():
 start = time.time()
 ask_user()
 complex_calculation()
-print(f'Single Thread totl time {time.time() - start}')
+print(f'Single Thread total time {time.time() - start}')
 
 thread1 = Thread(target = complex_calculation)
 thread2 = Thread(target= ask_user)
