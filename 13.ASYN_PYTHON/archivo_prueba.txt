@@ -1,0 +1,7 @@
+Linea 1: hola mundo
+Linea 2: aprendiendo generadores
+Linea 3: yield es poderoso
+Linea 4: no cargo todo en memoria
+Linea 5: proceso linea por linea
+Linea 6: ideal para archivos grandes
+Linea 7: fin del archivo
