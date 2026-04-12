@@ -97,19 +97,33 @@ for valor in generador:
 
 
 # ------------------------------------------------------------
-# EJEMPLO 5: Caso practico - leer un archivo grande linea por linea
+# EJEMPLO 5: Caso practico - leer un archivo linea por linea
 # ------------------------------------------------------------
 # Si el archivo pesa 10GB, NO puedes cargarlo entero en memoria.
 # Un generador te permite procesarlo linea por linea.
 
-def leer_archivo_grande(ruta):
+import os
+
+def leer_archivo(ruta):
     with open(ruta) as archivo:
         for linea in archivo:
-            yield linea.strip()  # entrega una linea a la vez
+            yield linea.strip()  # entrega una linea a la vez (sin \n al final)
 
-# uso:
-# for linea in leer_archivo_grande("archivo_enorme.txt"):
-#     procesar(linea)  # solo una linea en memoria a la vez
+# Construimos la ruta al archivo de prueba (esta en la misma carpeta)
+ruta_archivo = os.path.join(os.path.dirname(__file__), "archivo_prueba.txt")
+
+print("\n--- Leyendo archivo con generador ---")
+# Aqui el generador entrega una linea a la vez, no carga todo el archivo
+for linea in leer_archivo(ruta_archivo):
+    print(f"Procesando: {linea}")
+
+# Tambien puedes pedir linea por linea manualmente con next()
+print("\n--- Pidiendo lineas con next() ---")
+gen = leer_archivo(ruta_archivo)
+print(next(gen))  # primera linea
+print(next(gen))  # segunda linea
+print(next(gen))  # tercera linea
+# El resto quedan "pendientes", no se leen hasta que se pidan
 
 
 # ============================================================
