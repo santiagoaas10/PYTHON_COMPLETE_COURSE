@@ -9,7 +9,7 @@ def friend_upper():
         print(f'{greeting} {friend}')
 
 def greet(g):
-    g.send(None)
+    g.send(None) #todo estode la linea 12 a la 15 se puede resumir en un "add yield from g", aunque no es bien visto
     while True:
         greeting = yield
         g.send(greeting)
